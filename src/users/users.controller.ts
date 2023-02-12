@@ -9,10 +9,14 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user-dto';
+import { UserDto } from './dtos/user.dto';
 import { UsersService } from './users.service';
 
+// @UseInterceptors(new SerializerInterceptor(UserDto))
+@Serialize(UserDto) // use custom serialize decorator function instead the above form
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
