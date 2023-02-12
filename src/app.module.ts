@@ -13,7 +13,7 @@ import { Report } from './reports/report.entity';
       type: 'sqlite',
       database: 'db.sqlite',
       entities: [User, Report],
-      synchronize: true,
+      synchronize: true, // At startup, automatically set the structure of DB as Entities are set, set true only for development
     }),
     UsersModule,
     ReportsModule,
