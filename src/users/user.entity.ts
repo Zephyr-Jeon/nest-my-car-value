@@ -18,7 +18,7 @@ export class User {
   @Column()
   password: string;
 
-  // Hooks
+  // Hooks are executed when Repository.save() or Repository.remove() method is called
   @AfterInsert()
   logInsert() {
     console.log(`Inserted User with id ${this.id}`);
